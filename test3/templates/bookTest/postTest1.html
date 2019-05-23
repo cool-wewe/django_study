@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>postTest1</title>
+</head>
+<body>
+<form method="post" action="/bookTest/postTest2/">
+	<!-- label标签定义表单控件的文字标注，input类型为text定义了
+一个单行文本输入框  -->
+	<p>
+		<label>姓名：</label>
+		<input type="text" name="username"/>
+	</p>
+
+	<!-- input类型为password定义了一个密码输入框  -->
+	<p>
+		<label>密码：</label>
+		<input type="password" name="password"/>
+	</p>
+
+	<!-- input类型为radio定义了单选框  -->
+	<p>
+		<label>性别：</label>
+		<input type="radio" name="gender" checked ="checked" value="0"/> 男
+		<input type="radio" name="gender" value="1"/> 女
+	</p>
+
+	<!-- input类型为checkbox定义了单选框  -->
+	<p>
+		<label>爱好：</label>
+		<input type="checkbox" name="like" value="唱歌"/> 唱歌
+		<input type="checkbox" name="like" value="跑步"/> 跑步
+		<input type="checkbox" name="like" value="游泳"/> 游泳
+	</p>
+
+	<input type="submit" value="提交">
+</form>
+</body>
+</html>

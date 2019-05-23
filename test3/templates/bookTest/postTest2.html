@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>postTest2</title>
+</head>
+<body>
+<label>用户名：{{ name }}</label><br>
+<label>密码：{{ pwd }}</label><br>
+<label>性别：
+	{% if gender %}
+		男
+	{% else %}
+		女
+	{% endif %}
+</label><br>
+<label>
+	爱好：
+	{% for hobby in like %}
+		{{ hobby }} &nbsp;
+	{% endfor %}
+</label><br>
+<a href="/bookTest/postTest1/">返回</a>
+</body>
+</html>
