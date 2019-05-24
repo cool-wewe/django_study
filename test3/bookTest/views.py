@@ -68,3 +68,24 @@ def redirect_test1(request):
 
 def redirect_test2(request):
     return HttpResponse("这是转向来的页面")
+
+
+def session_index(request):
+    s_name = request.session.get("myName", "未登录")
+    context = {"uname": s_name}
+    return render(request, "bookTest/sessionIndex.html", context)
+
+
+def session_load(request):
+    return render(request, "bookTest/sessionLoad.html")
+
+
+def session_loaded(request):
+    uname = request.POST["uname"]
+    request.session["myName"] = uname
+    return redirect("/bookTest/sessionIndex/")
+
+
+def session_exit(request):
+    request.session.clear()
+    return redirect("/bookTest/sessionIndex/")

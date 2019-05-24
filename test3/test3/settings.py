@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for test3 project.
 
@@ -68,13 +69,39 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'test3.wsgi.application'
 
+# 配置session存储于redis数据库中
+# SESSION_ENGINE = 'redis_sessions.session'
+# SESSION_REDIS_HOST = 'localhost'
+# SESSION_REDIS_PORT = 6379
+# SESSION_REDIS_DB = 0
+# SESSION_REDIS_PASSWORD = 'redis123456'  # redis123456
+# SESSION_REDIS_PREFIX = 'session'
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://192.168.222.129:6379",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "CONNECTION_POOL_KWARGS": {"max_connections": 100},
+            "PASSWORD": "redis123456",
+        }
+    }
+}
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+SESSION_CACHE_ALIAS = 'default'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': "hb2",
+        'USER': 'root',
+        'PASSWORD': '123456',
+        'HOST': '192.168.222.129',
+        'PORT': '3306',
     }
 }
 

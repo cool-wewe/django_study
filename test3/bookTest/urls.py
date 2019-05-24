@@ -27,4 +27,9 @@ urlpatterns = [
 
     path('redirectTest1', redirect_test1),
     path('redirectTest2', redirect_test2),
+
+    path('sessionIndex/', session_index),
+    path('sessionLoad/', session_load),
+    path('sessionLoaded/', session_loaded),
+    path('sessionExit/', session_exit),
 ]
