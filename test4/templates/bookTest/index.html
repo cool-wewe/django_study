@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+		"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<title>index</title>
+</head>
+<body>
+<a href="{% url 'bookTest:show' %}">
+	{{ book.btittle }}
+</a>
+
+<hr>
+<ul>
+	{% for hero in hero_she %}
+		<li style="color: aqua;background-color: pink">{{ hero.show_name }} &nbsp;{{ hero.hcontent }}</li>
+	{% endfor %}
+</ul>
+<hr>
+<ul>
+	{% for hero in hero_all %}
+		{% if forloop.counter|divisibleby:2 %}
+			<li style="color: red">
+				{{ forloop.counter }}、{{ hero.show_name }}
+			</li>
+		{% else %}
+			<li style="color: blue">
+				{{ forloop.counter }}、{{ hero.show_name }}
+			</li>
+		{% endif %}
+
+	{% empty %} <!--表示没有数据走这里 -->
+		<li>啥也没有</li>
+	{% endfor %}
+</ul>
+
+</body>
+</html>
