@@ -1,4 +1,18 @@
 {% extends "bookTest/base.html" %}
 
-{% block title %}index2{% endblock title %}
+{% block title %}用户登录{% endblock title %}
 
+{% block code1 %}
+	<p>
+	<form method="post" action="{% url 'bookTest:general_user' %}">
+		{% csrf_token %}<!--添加该代码实现进行csrf验证 -->
+		<label>用户名：</label><input type="text" name="name"/><br>
+		<label>密码：</label><input type="password" name="pwd"/><br>
+		<input type="submit" name="登录" value="登录"/>
+	</form>
+	</p>
+	<hr>
+	<label style="color: red">该页面实现了csrf验证，可以实现正常提交表单</label><br>
+	<a href="{% url 'bookTest:index3' %}">vip 用户请点击</a>
+	<label style="color: aqua">点击链接进入未实现csrf验证页面</label>
+{% endblock code1 %}

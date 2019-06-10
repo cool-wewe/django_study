@@ -1,0 +1,16 @@
+{% extends "bookTest/base.html" %}
+
+
+
+{% block code1 %}
+	<table border="1">
+		<tr>
+			<td height="200" width="100">用户中心</td>
+			<td width="300">{% block user_content %}{% endblock user_content %}</td>
+		</tr>
+		{% block vip_code %}
+		{% endblock vip_code %}
+	</table>
+	<hr>
+	<a href="{% url "bookTest:index2" %}">返回</a>
+{% endblock code1 %}

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+		"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<title>Html转义</title>
+</head>
+<body>
+{{ t1 }}
+<hr>
+{{ t1|safe }}<!--添加safe过滤器，使其不转义 -->
+<hr>
+{% autoescape off %}<!--使用 autoescape实现不转义-->
+	{{ t1 }}
+{% endautoescape %}
+<hr>
+字面值：<br>
+{{ t2|default:'<h1>你好</h1>' }}
+<br>
+手动转义：<br>
+{{ t2|default:'&lt;h1&gt;你好&lt;/h1&gt;' }}
+<br>
+
+{{ t2|default:'<h1>你好</h1>'|escape }}
+</body>
+</html>

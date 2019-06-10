@@ -1,0 +1,16 @@
+{% extends "bookTest/base.html" %}
+
+{% block title %}VIP 用户登录{% endblock title %}
+
+{% block code1 %}
+	<p>
+	<form method="post" action="{% url 'bookTest:vip_user' %}">
+		<label>用户名：</label><input type="text" name="name"/><br>
+		<label>密码：</label><input type="password" name="pwd"/><br>
+		<input type="submit" name="登录" value="登录"/>
+	</form>
+	</p>
+	<hr>
+	<label style="color: red">该页面未实现了csrf验证，提交表单会报错</label><br>
+	<a href="{% url 'bookTest:index2' %}">普通用户请点击</a>
+{% endblock code1 %}
